@@ -31,3 +31,7 @@ h1 {
   border: 0.5px rgba(220, 220, 220, 0.5) solid;
   background-color: #fff;
 }
+
+.paint {
+  background-color: #000;
+}
