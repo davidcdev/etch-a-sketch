@@ -1,7 +1,7 @@
 const canvas = document.querySelector('.canvas-container');
 const size = 16;
 const canvasSize = 600;
-const sizeText = document.querySelector('.actual-size');
+const sizeInfo = document.querySelector('.actual-size');
 
 for (let i = 0; i < size * size; i++) {
   const square = document.createElement('div');
@@ -9,7 +9,7 @@ for (let i = 0; i < size * size; i++) {
   square.style.width = `${canvasSize / size}px`;
   square.style.height = `${canvasSize / size}px`;
   canvas.appendChild(square);
-  sizeText.textContent = `Actual size: ${size} x ${size}`;
+  sizeInfo.textContent = `Actual size: ${size} x ${size}`;
 };
 
 const squares = document.querySelectorAll('.square');
@@ -36,7 +36,7 @@ resizeButton.addEventListener('click', () => {
       square.style.width = `${canvasSize / newSize}px`;
       square.style.height = `${canvasSize / newSize}px`;
       canvas.appendChild(square);
-      sizeText.textContent = `Actual size: ${newSize} x ${newSize}`;
+      sizeInfo.textContent = `Actual size: ${newSize} x ${newSize}`;
     };
 
     const squares = document.querySelectorAll('.square');
@@ -46,4 +46,30 @@ resizeButton.addEventListener('click', () => {
       });
     });
   };
+});
+
+eraser.addEventListener('click', () => {
+  brush.classList.remove('active');
+  eraser.classList.add('active');
+
+  const actualSquares = document.querySelectorAll('.square');
+  actualSquares.forEach((square) => {
+    square.addEventListener('mouseover', () => {
+      square.classList.remove('paint');
+      square.classList.add('eraser');
+    });
+  });
+});
+
+brush.addEventListener('click', () => {
+  eraser.classList.remove('active');
+  brush.classList.add('active');
+
+  const actualSquares = document.querySelectorAll('.square');
+  actualSquares.forEach((square) => {
+    square.addEventListener('mouseover', () => {
+      square.classList.remove('eraser');
+      square.classList.add('paint');
+    });
+  });
 });
