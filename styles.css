@@ -43,6 +43,11 @@ span {
   padding: 4px 8px;
 }
 
+.actual-size {
+  text-align: center;
+  color: gray;
+}
+
 button {
   cursor: pointer;
   border: none;
@@ -51,8 +56,29 @@ button {
   color: #fff;
   font-size: 16px;
   padding: 8px 16px;
-  margin: 50px;
   box-shadow: var(--shadow-elevation-medium);
+}
+
+.container {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tools {
+  width: 80px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: rgba(220, 220, 220, 0.5);
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.tools button {
+  margin-bottom: 4px;
 }
 
 .canvas-container {
@@ -60,8 +86,9 @@ button {
   height: 600px;
   display: flex;
   flex-wrap: wrap;
-  background-color: gainsboro;
-  margin: 40px;
+  flex-grow:inherit;
+  margin: 80px;
+  right: auto;
   box-shadow: var(--shadow-elevation-high);
 }
 
@@ -73,6 +100,10 @@ button {
 
 .paint {
   background-color: #000;
+}
+
+.erase {
+  background-color: #fff;
 }
 
 footer {

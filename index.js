@@ -1,6 +1,7 @@
 const canvas = document.querySelector('.canvas-container');
 const size = 16;
 const canvasSize = 600;
+const sizeText = document.querySelector('.actual-size');
 
 for (let i = 0; i < size * size; i++) {
   const square = document.createElement('div');
@@ -8,6 +9,7 @@ for (let i = 0; i < size * size; i++) {
   square.style.width = `${canvasSize / size}px`;
   square.style.height = `${canvasSize / size}px`;
   canvas.appendChild(square);
+  sizeText.textContent = `Actual size: ${size} x ${size}`;
 };
 
 const squares = document.querySelectorAll('.square');
@@ -34,6 +36,7 @@ resizeButton.addEventListener('click', () => {
       square.style.width = `${canvasSize / newSize}px`;
       square.style.height = `${canvasSize / newSize}px`;
       canvas.appendChild(square);
+      sizeText.textContent = `Actual size: ${newSize} x ${newSize}`;
     };
 
     const squares = document.querySelectorAll('.square');
